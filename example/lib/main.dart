@@ -26,7 +26,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  Country _selectedCountry;
+  Country? _selectedCountry;
 
   @override
   void initState() {
@@ -56,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 : Column(
                     children: <Widget>[
                       Image.asset(
-                        _selectedCountry.flag,
+                        _selectedCountry!.flag!,
                         package: countryCodePackageName,
                         width: 100,
                       ),
@@ -75,17 +75,17 @@ class _MyHomePageState extends State<MyHomePage> {
             SizedBox(
               height: 100,
             ),
-            RaisedButton(
+            MaterialButton(
               child: Text('Select Country using full screen'),
               color: Colors.amber,
               onPressed: _onPressed,
             ),
-            RaisedButton(
+            MaterialButton(
               child: Text('Select Country using bottom sheet'),
               color: Colors.orange,
               onPressed: _onPressedShowBottomSheet,
             ),
-            RaisedButton(
+            MaterialButton(
               child: Text('Select Country using dialog'),
               color: Colors.deepOrangeAccent,
               onPressed: _onPressedShowDialog,
