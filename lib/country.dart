@@ -1,5 +1,5 @@
 class Country {
-  final String?/*!*/ name;
+  final String? name;
   final String? flag;
   final String? countryCode;
   final String? callingCode;
