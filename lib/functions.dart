@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:country_calling_code_picker/country_code_picker.dart';
@@ -8,7 +9,7 @@ import 'package:flutter_sim_country_code/flutter_sim_country_code.dart';
 import './country.dart';
 
 ///This function returns list of countries
-Future<List<Country>> getCountries(BuildContext context) async {
+Future<List<Country?>?> getCountries(BuildContext context) async {
   String rawData = await DefaultAssetBundle.of(context).loadString(
       'packages/country_calling_code_picker/raw/country_codes.json');
   if (rawData == null) {
@@ -20,13 +21,13 @@ Future<List<Country>> getCountries(BuildContext context) async {
 
 ///This function returns an user's current country. User's sim country code is matched with the ones in the list.
 ///If there is no sim in the device, first country in the list will be returned.
-Future<Country> getDefaultCountry(BuildContext context) async {
-  final list = await getCountries(context);
+Future<Country?> getDefaultCountry(BuildContext context) async {
+  final list = await (getCountries(context) as FutureOr<List<Country?>>);
   var currentCountry;
   try {
     final countryCode = await FlutterSimCountryCode.simCountryCode;
     currentCountry = list.firstWhere(
-        (element) => element.countryCode == countryCode,
+        (element) => element!.countryCode == countryCode,
         orElse: () => null);
   } catch (e) {
     currentCountry = list.first;
@@ -35,16 +36,16 @@ Future<Country> getDefaultCountry(BuildContext context) async {
 }
 
 ///This function returns an country whose [countryCode] matches with the passed one.
-Future<Country> getCountryByCountryCode(
+Future<Country?> getCountryByCountryCode(
     BuildContext context, String countryCode) async {
-  final list = await getCountries(context);
-  return list.firstWhere((element) => element.countryCode == countryCode,
+  final list = await (getCountries(context));
+  return list!.firstWhere((element) => element!.countryCode == countryCode,
       orElse: () => null);
 }
 
-Future<Country> showCountryPickerSheet(BuildContext context,
-    {Widget title,
-    Widget cancelWidget,
+Future<Country?> showCountryPickerSheet(BuildContext context,
+    {Widget? title,
+    Widget? cancelWidget,
     double cornerRadius: 35,
     bool focusSearchBox: false,
     double heightFactor: 0.9}) {
@@ -101,9 +102,9 @@ Future<Country> showCountryPickerSheet(BuildContext context,
       });
 }
 
-Future<Country> showCountryPickerDialog(
+Future<Country?> showCountryPickerDialog(
   BuildContext context, {
-  Widget title,
+  Widget? title,
   double cornerRadius: 35,
   bool focusSearchBox: false,
 }) {
