@@ -69,15 +69,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_sim_country_code:
-    dependency: transitive
-    description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "2c8207049af21ac372140d577193e9d26a601124"
-      url: "https://github.com/IRFAN-GujjAR/flutter_sim_country_code.git"
-    source: git
-    version: "0.0.2"
   flutter_test:
     dependency: "direct dev"
     description: flutter

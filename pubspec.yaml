@@ -11,9 +11,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_sim_country_code: 
-    git:
-      url: https://github.com/IRFAN-GujjAR/flutter_sim_country_code.git
+  # flutter_sim_country_code: 
+    # git:
+      # url: https://github.com/IRFAN-GujjAR/flutter_sim_country_code.git
 
 
 dev_dependencies:
