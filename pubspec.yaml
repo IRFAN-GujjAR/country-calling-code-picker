@@ -1,7 +1,7 @@
 name: country_calling_code_picker
 description: Flexible Country picker for getting Country code and Calling code.
 version: 2.0.0
-homepage: https://github.com/dev-naiksan/country-calling-code-picker.git
+homepage: https://github.com/IRFAN-GujjAR/country-calling-code-picker.git
 publish_to: none
 
 environment:
