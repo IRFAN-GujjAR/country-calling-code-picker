@@ -73,13 +73,13 @@ class _CountryPickerWidgetState extends State<CountryPickerWidget> {
       setState(() {
         _filteredList = _list!
             .where((element) =>
-                element!.name!
+                element!.name
                     .toLowerCase()
                     .contains(text.toString().toLowerCase()) ||
-                element.callingCode!
+                element.callingCode
                     .toLowerCase()
                     .contains(text.toString().toLowerCase()) ||
-                element.countryCode!
+                element.countryCode
                     .toLowerCase()
                     .startsWith(text.toString().toLowerCase()))
             .map((e) => e)
@@ -184,7 +184,7 @@ class _CountryPickerWidgetState extends State<CountryPickerWidget> {
                         child: Row(
                           children: <Widget>[
                             Image.asset(
-                              _filteredList[index]!.flag!,
+                              _filteredList[index]!.flag,
                               package: countryCodePackageName,
                               width: widget.flagIconSize,
                             ),
