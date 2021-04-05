@@ -56,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 : Column(
                     children: <Widget>[
                       Image.asset(
-                        _selectedCountry!.flag!,
+                        _selectedCountry!.flag,
                         package: countryCodePackageName,
                         width: 100,
                       ),
